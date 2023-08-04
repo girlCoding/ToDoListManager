@@ -1,0 +1,91 @@
+Great, you've created a new public class named `ToDoListManager`! Now, let's start adding the properties and methods to implement the basic features of your ToDoListManager API.
+
+Here's a step-by-step guide on what you can code next:
+
+1. **Add Imports:**
+   If your `ToDoListManager` class uses other Java classes or data structures, you'll need to import them at the beginning of your class file. For example:
+   
+   ```java
+   import java.util.ArrayList;
+   import java.util.List;
+   ```
+
+2. **Define Class and Properties:**
+   Define the class and the properties you'll need. In this case, you'll want to maintain a list of tasks. You can do this by adding a private field inside your class:
+   
+   ```java
+   public class ToDoListManager {
+       private List<Task> tasks;
+       
+       // Constructor and methods will be added here.
+   }
+   ```
+
+3. **Constructor:**
+   Create a constructor for your `ToDoListManager` class. The constructor initializes the `tasks` list. You can use an ArrayList to store the tasks:
+   
+   ```java
+   public ToDoListManager() {
+       tasks = new ArrayList<>();
+   }
+   ```
+
+4. **Add Task Method:**
+   Add a method to allow users to add a new task to the list. This method takes a `Task` object as a parameter and adds it to the `tasks` list:
+   
+   ```java
+   public void addTask(Task task) {
+       tasks.add(task);
+   }
+   ```
+
+5. **Mark Task as Completed Method:**
+   Implement a method that allows users to mark a task as completed. This method can take a task ID as a parameter and update the corresponding task's completion status:
+   
+   ```java
+   public void markTaskAsCompleted(int taskId) {
+       for (Task task : tasks) {
+           if (task.getTaskId() == taskId) {
+               task.setCompleted(true);
+               break;
+           }
+       }
+   }
+   ```
+
+6. **Get All Tasks Method:**
+   Create a method that returns a list of all tasks. This method simply returns the `tasks` list:
+   
+   ```java
+   public List<Task> getAllTasks() {
+       return tasks;
+   }
+   ```
+
+7. **Get Pending Tasks Method:**
+   Implement a method that returns a list of pending (not completed) tasks:
+   
+   ```java
+   public List<Task> getPendingTasks() {
+       List<Task> pendingTasks = new ArrayList<>();
+       for (Task task : tasks) {
+           if (!task.isCompleted()) {
+               pendingTasks.add(task);
+           }
+       }
+       return pendingTasks;
+   }
+   ```
+
+8. **Remove Task Method:**
+   Add a method to remove a task from the list based on its ID:
+   
+   ```java
+   public void removeTask(int taskId) {
+       tasks.removeIf(task -> task.getTaskId() == taskId);
+   }
+   ```
+
+Remember, this is a basic implementation. Depending on your requirements, you can enhance and extend these methods. Additionally, you'll need to define the `Task` class and write the main method (similar to the example I provided earlier) to demonstrate the usage of your `ToDoListManager` class.
+
+Finally, don't forget to add comments, documentation, and possibly exception handling to ensure your code is clear and robust.
